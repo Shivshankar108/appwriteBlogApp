@@ -43,9 +43,9 @@ function Login() {
                 </h2>
                 <p className='mt-2 text-center text-base text-black/60'>
                     Don&apos;t have an account?&nbsp;
-                    <Link 
+                    <Link
                         to="/singup"
-                        className='font-medium text-primary transition-all duration-200 hover:underline'    
+                        className='font-medium text-primary transition-all duration-200 hover:underline'
                     >
                         Sign Up
                     </Link>
@@ -54,22 +54,22 @@ function Login() {
                 <form onSubmit={handleSubmit(loginSub)} className='mt-8'>
                     <div className='space-y-5'>
                         <Input
-                            label = "Email"
-                            placeholder = "Enter your email"
-                            type = "email"
-                            {...register("email",{
-                                required : true,
+                            label="Email"
+                            placeholder="Enter your email"
+                            type="email"
+                            {...register("email", {
+                                required: true,
                                 validate: {
-                                    matchPatern: (value) => /^(?=.{1,254})(?=.{1,64}@.{1,255})[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/.test(value)|| "Email address must be a valid email address"
+                                    matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) || "Email address must be a valid address",
                                 }
                             })}
                         />
                         <Input
-                            label = "Password"
-                            placeholder = "Enter your password"
-                            type = "password"
-                            {...register("password",{
-                                required : true,
+                            label="Password"
+                            placeholder="Enter your password"
+                            type="password"
+                            {...register("password", {
+                                required: true,
                                 // minLength: 8,
                                 // validate: {
                                 //     matchPatern: (value) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value)|| "Password must contain at least 8 characters, including uppercase letters, lowercase letters, numbers, and special characters"
